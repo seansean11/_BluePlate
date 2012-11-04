@@ -14,8 +14,19 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php _blueplate_content_nav( 'nav-above' ); ?>
+						
+						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+							<header class="entry-header">
+								<h2 class="entry-title"><?php the_title(); ?></h2>
+							</header><!-- .entry-header -->
 
-				<?php get_template_part( 'content', 'single' ); ?>
+							<div class="entry-content">
+								<?php the_content(); ?>
+								<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'creative_beginnings' ), 'after' => '</div>' ) ); ?>
+								<?php edit_post_link( __( 'Edit', 'creative_beginnings' ), '<span class="edit-link">', '</span>' ); ?>
+							</div><!-- .entry-content -->
+						</article><!-- #post-<?php the_ID(); ?> -->
+
 
 				<?php _blueplate_content_nav( 'nav-below' ); ?>
 

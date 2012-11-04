@@ -6,29 +6,33 @@
  * @since _BluePlate 1.0
  */
 ?>
-		<div id="secondary" class="widget-area" role="complementary">
-			<?php do_action( 'before_sidebar' ); ?>
-			<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
 
-				<aside id="search" class="widget widget_search">
-					<?php get_search_form(); ?>
-				</aside>
+<aside class="widget" role="complementary">
+			
+	<?php if ( dynamic_sidebar( 'sidebar-1' ) ) : ?>
 
-				<aside id="archives" class="widget">
-					<h1 class="widget-title"><?php _e( 'Archives', '_blueplate' ); ?></h1>
-					<ul>
-						<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
-					</ul>
-				</aside>
+	<?php endif; // end sidebar widget area ?>
+				
+	<!-- Sidebar Navigation -->
+		<nav class="side-nav">
+			<ul>
+	   			<?php wp_list_pages( array('title_li'=>'','depth'=>2,'child_of'=>get_post_top_ancestor_id()) ); ?>
+			</ul>
+		</nav>
+				
+	<!-- Possible Callout -->
+		<?php if (get_field('callout_picker')) {
+			foreach(get_field('callout_picker') as $post_object):
+		?>
 
-				<aside id="meta" class="widget">
-					<h1 class="widget-title"><?php _e( 'Meta', '_blueplate' ); ?></h1>
-					<ul>
-						<?php wp_register(); ?>
-						<li><?php wp_loginout(); ?></li>
-						<?php wp_meta(); ?>
-					</ul>
-				</aside>
+		<section class="widget">
+			<h5><?php the_field('title',$post_object->ID); ?></h5>
+			<img src="<?php the_field('image',$post_object->ID); ?>">
+			<p><?php the_field('text',$post_object->ID); ?></p><br />
+			<a href="<?php the_field('link_url',$post_object->ID); ?>" class="button">Read More</a>
+		</section>
 
-			<?php endif; // end sidebar widget area ?>
-		</div><!-- #secondary .widget-area -->
+		<?php endforeach; } ?>
+
+
+</aside><!-- .widget -->

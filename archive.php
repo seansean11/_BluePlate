@@ -72,13 +72,17 @@ get_header(); ?>
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php
-						/* Include the Post-Format-specific template for the content.
-						 * If you want to overload this in a child theme then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'content', get_post_format() );
-					?>
+					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+							<header class="entry-header">
+								<h2 class="entry-title"><?php the_title(); ?></h2>
+							</header><!-- .entry-header -->
+
+							<div class="entry-content">
+								<?php the_content(); ?>
+								<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'creative_beginnings' ), 'after' => '</div>' ) ); ?>
+								<?php edit_post_link( __( 'Edit', 'creative_beginnings' ), '<span class="edit-link">', '</span>' ); ?>
+							</div><!-- .entry-content -->
+						</article><!-- #post-<?php the_ID(); ?> -->
 
 				<?php endwhile; ?>
 
