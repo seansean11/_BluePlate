@@ -36,10 +36,6 @@ function _blueplate_setup() {
 	 */
 	//require( get_template_directory() . '/inc/tweaks.php' );
 
-	/**
-	 * Custom Theme Options
-	 */
-	require( get_template_directory() . '/inc/theme-options/theme-options.php' );
 
 	/**
 	 * Make theme available for translation
