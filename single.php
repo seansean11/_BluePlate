@@ -8,38 +8,36 @@
 
 get_header(); ?>
 
-		<div id="primary" class="content-area">
-			<div id="content" class="site-content" role="main">
+	<div id="content" class="site-content" role="main">
 
-			<?php while ( have_posts() ) : the_post(); ?>
+		<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php _blueplate_content_nav( 'nav-above' ); ?>
-						
-						<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-							<header class="entry-header">
-								<h2 class="entry-title"><?php the_title(); ?></h2>
-							</header><!-- .entry-header -->
+			<?php _blueplate_content_nav( 'nav-above' ); ?>
+					
+					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+						<header class="entry-header">
+							<h2 class="entry-title"><?php the_title(); ?></h2>
+						</header><!-- .entry-header -->
 
-							<div class="entry-content">
-								<?php the_content(); ?>
-								<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'creative_beginnings' ), 'after' => '</div>' ) ); ?>
-								<?php edit_post_link( __( 'Edit', 'creative_beginnings' ), '<span class="edit-link">', '</span>' ); ?>
-							</div><!-- .entry-content -->
-						</article><!-- #post-<?php the_ID(); ?> -->
+						<div class="entry-content">
+							<?php the_content(); ?>
+							<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'creative_beginnings' ), 'after' => '</div>' ) ); ?>
+							<?php edit_post_link( __( 'Edit', 'creative_beginnings' ), '<span class="edit-link">', '</span>' ); ?>
+						</div><!-- .entry-content -->
+					</article><!-- #post-<?php the_ID(); ?> -->
 
 
-				<?php _blueplate_content_nav( 'nav-below' ); ?>
+			<?php _blueplate_content_nav( 'nav-below' ); ?>
 
-				<?php
-					// If comments are open or we have at least one comment, load up the comment template
-					if ( comments_open() || '0' != get_comments_number() )
-						comments_template( '', true );
-				?>
+			<?php
+				// If comments are open or we have at least one comment, load up the comment template
+				if ( comments_open() || '0' != get_comments_number() )
+					comments_template( '', true );
+			?>
 
-			<?php endwhile; // end of the loop. ?>
+		<?php endwhile; // end of the loop. ?>
 
-			</div><!-- #content .site-content -->
-		</div><!-- #primary .content-area -->
+	</div><!-- #content .site-content -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

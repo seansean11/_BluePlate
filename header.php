@@ -9,8 +9,12 @@
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-<!-- <link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/favicon.ico" type="image/x-icon"/> -->
+<link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/favicon.ico" type="image/x-icon"/>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
+
+<meta name="description" content="">
+<meta name="author" content="">
+
 <meta name="viewport" content="width=device-width" />
 <title><?php
 	/*
@@ -32,7 +36,7 @@
 	if ( $paged >= 2 || $page >= 2 )
 		echo ' | ' . sprintf( __( 'Page %s', '_blueplate' ), max( $paged, $page ) );
 
-	?></title>
+?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
@@ -41,12 +45,11 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="main" class="wrapper">
-	<?php do_action( 'before' ); ?>
+
 	<header class="site-header" role="banner">
 		<nav role="navigation" class="main-navigation">
 			
-			<h1><a class="site-logo" href="<?php echo bloginfo('url'); ?>"><?php bloginfo ('name'); ?></a></h1>
+			<h1><a class="site-logo" title="<?php bloginfo ('name'); ?>" rel="home" href="<?php echo bloginfo('url'); ?>"><?php bloginfo ('name'); ?></a></h1>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container'=>'' ) ); ?>
 			
 		</nav><!-- .main-navigation -->

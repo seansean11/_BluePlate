@@ -55,6 +55,10 @@ function _blueplate_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
+	// if ( function_exists( 'add_image_size' ) ) { 
+	// add_image_size( 'custom', 1350, 492, true ); //(cropped)
+	// }	
+
 	/**
 	 * This theme uses wp_nav_menu() in one location.
 	 */
@@ -121,9 +125,9 @@ function my_jquery_enqueue() {
 function _blueplate_scripts() {
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'plugins', get_template_directory_uri() . '/js/plugins.js', array( 'jquery' ), true);
+	wp_enqueue_script( 'plugins', get_template_directory_uri() . '/js/plugins-ck.js', array( 'jquery' ), true);
 
-	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery', 'plugins' ), true);
+	wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts-ck.js', array( 'jquery', 'plugins' ), true);
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

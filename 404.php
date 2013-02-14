@@ -10,27 +10,25 @@ get_header(); ?>
 
 	get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
+	<div id="content" class="site-content" role="main">
 
-			<article id="post-0" class="post error404 not-found">
-				<header class="entry-header">
-				<h2>Oops! That page can&rsquo;t be found.</h2>
-				</header><!-- .entry-header -->
+		<article id="post-0" class="post error404 not-found">
+			<header class="entry-header">
+			<h2>Oops! That page can&rsquo;t be found.</h2>
+			</header><!-- .entry-header -->
 
-				<div class="entry-content">
-					<p><?php _e( 'That page can&rsquo;t be found.', '_blueplate' ); ?>
-					</br><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below.', '_blueplate' ); ?></p>
-
-
-					<?php the_widget( 'WP_Widget_Recent_Posts','', 'before_title=<h3 class="widgettitle">&after_title=</h3>'); ?>
+			<div class="entry-content">
+				<p><?php _e( 'That page can&rsquo;t be found.', '_blueplate' ); ?>
+				</br><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below.', '_blueplate' ); ?></p>
 
 
-				</div><!-- .entry-content -->
-			</article><!-- #post-0 .post .error404 .not-found -->
+				<?php the_widget( 'WP_Widget_Recent_Posts','', 'before_title=<h3 class="widgettitle">&after_title=</h3>'); ?>
 
-		</div><!-- #content .site-content -->
-	</div><!-- #primary .content-area -->
+
+			</div><!-- .entry-content -->
+		</article><!-- #post-0 .post .error404 .not-found -->
+
+	</div><!-- #content .site-content -->
 
 <?php get_footer(); ?>
 

@@ -8,34 +8,32 @@
 
 get_header(); ?>
 
-		<section id="primary" class="content-area">
-			<div id="content" class="site-content" role="main">
+	<div class="site-content" role="main">
 
-			<?php if ( have_posts() ) : ?>
+		<?php if ( have_posts() ) : ?>
 
-				<header class="page-header">
-					<h1 class="page-title"><?php printf( __( 'Search Results for: %s', '_blueplate' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-				</header><!-- .page-header -->
+			<header class="page-header">
+				<h2 class="page-title"><?php printf( __( 'Search Results for: %s', '_blueplate' ), '<span>' . get_search_query() . '</span>' ); ?></h2>
+			</header><!-- .page-header -->
 
-				<?php _blueplate_content_nav( 'nav-above' ); ?>
+			<?php _blueplate_content_nav( 'nav-above' ); ?>
 
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
+			<?php /* Start the Loop */ ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php get_template_part( 'content', 'search' ); ?>
+				<?php get_template_part( 'content', 'search' ); ?>
 
-				<?php endwhile; ?>
+			<?php endwhile; ?>
 
-				<?php _blueplate_content_nav( 'nav-below' ); ?>
+			<?php _blueplate_content_nav( 'nav-below' ); ?>
 
-			<?php else : ?>
+		<?php else : ?>
 
-				<?php get_template_part( 'no-results', 'search' ); ?>
+			<?php get_template_part( 'no-results', 'search' ); ?>
 
-			<?php endif; ?>
+		<?php endif; ?>
 
-			</div><!-- #content .site-content -->
-		</section><!-- #primary .content-area -->
+	</div><!-- #content .site-content -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
